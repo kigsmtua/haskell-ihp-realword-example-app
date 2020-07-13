@@ -18,7 +18,6 @@ CREATE TABLE user_followers (
 );
 CREATE TABLE articles (
     id UUID DEFAULT uuid_generate_v4() PRIMARY KEY NOT NULL,
-    author TEXT NOT NULL,
     title TEXT NOT NULL,
     description TEXT NOT NULL,
     slug TEXT NOT NULL UNIQUE,
