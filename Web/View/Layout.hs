@@ -16,18 +16,47 @@ defaultLayout inner = H.docTypeHtml ! A.lang "en" $ [hsx|
 <head>
     {metaTags}
 
-    <link rel="stylesheet" href="/vendor/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//demo.productionready.io/main.css">
     <link rel="stylesheet" href="/app.css"/>
 
     {scripts}
 
-    <title>App</title>
+    <title>Conduit</title>
 </head>
 <body>
-    <div class="container mt-4">
-        {renderFlashMessages}
-        {inner}
-    </div>
+  <nav class="navbar navbar-light">
+      <div class="container">
+        <a class="navbar-brand" href={ArticlesAction}>conduit</a>
+        <ul class="nav navbar-nav pull-xs-right">
+          <li class="nav-item">
+            <a class="nav-link active" href={ArticlesAction}>Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href={NewArticleAction}>
+              <i class="ion-compose"></i>New Post
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href={NewSessionAction}>
+              <i class="ion-gear-a"></i>Sign in
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href={NewUserAction}>Sign up</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    {renderFlashMessages}
+    {inner}
+    <footer>
+     <div class="container">
+       <a href="/" class="logo-font">conduit</a>
+       <span class="attribution">
+         An interactive learning project from <a href="https://thinkster.io">Thinkster</a>. Code &amp; design licensed under MIT.
+       </span>
+     </div>
+   </footer>
 </body>
 |]
 
