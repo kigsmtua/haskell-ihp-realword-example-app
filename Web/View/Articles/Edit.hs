@@ -17,7 +17,6 @@ instance View EditView ViewContext where
 
 renderForm :: Article -> Html
 renderForm article = formFor article [hsx|
-    {textField #author}
     {textField #title}
     {textField #description}
     {textField #slug}

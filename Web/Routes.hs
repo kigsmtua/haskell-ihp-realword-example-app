@@ -4,15 +4,10 @@ import Generated.Types
 import Web.Types
 
 -- Generator Marker
-instance AutoRoute HomeControllersController
-type instance ModelControllerMap WebApplication HomeController = HomeControllersController
-
-instance AutoRoute LoginControllersController
-type instance ModelControllerMap WebApplication LoginController = LoginControllersController
-
-instance AutoRoute RegistrationControllersController
-type instance ModelControllerMap WebApplication RegistrationController = RegistrationControllersController
-
 instance AutoRoute ArticlesController
+instance AutoRoute SessionsController
+
 type instance ModelControllerMap WebApplication Article = ArticlesController
+instance AutoRoute UsersController
+type instance ModelControllerMap WebApplication User = UsersController
 

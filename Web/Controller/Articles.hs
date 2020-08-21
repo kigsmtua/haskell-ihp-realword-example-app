@@ -3,8 +3,8 @@ module Web.Controller.Articles where
 import Web.Controller.Prelude
 import Web.View.Articles.Index
 import Web.View.Articles.New
-import Web.View.Articles.Edit
 import Web.View.Articles.Show
+import Web.View.Articles.Edit
 
 instance Controller ArticlesController where
     action ArticlesAction = do
@@ -39,7 +39,7 @@ instance Controller ArticlesController where
         article
             |> buildArticle
             |> ifValid \case
-                Left article -> render NewView { .. } 
+                Left article -> render NewView { .. }
                 Right article -> do
                     article <- article |> createRecord
                     setSuccessMessage "Article created"
@@ -52,4 +52,4 @@ instance Controller ArticlesController where
         redirectTo ArticlesAction
 
 buildArticle article = article
-    |> fill @["author","title","description","slug","body","authorId"]
+    |> fill @["title","description","slug","body","authorId"]
