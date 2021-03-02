@@ -3,6 +3,8 @@ import IHP.RouterPrelude
 import IHP.ControllerSupport
 import Generated.Types
 import Web.Types
+import Web.Controller.Prelude
+import Web.View.Layout (defaultLayout)
 
 -- Login and all
 import IHP.LoginSupport.Middleware
@@ -23,5 +25,6 @@ instance FrontController WebApplication where
         ]
 
 instance InitControllerContext WebApplication where
-    initContext =
+    initContext = do
         initAuthentication @User
+        setLayout defaultLayout

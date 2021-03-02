@@ -3,7 +3,7 @@ import Web.View.Prelude
 
 data IndexView = IndexView { articles :: [Article] }
 
-instance View IndexView ViewContext where
+instance View IndexView where
     html IndexView { .. } = [hsx|
     <div class="home-page">
 

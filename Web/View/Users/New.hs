@@ -3,7 +3,7 @@ import Web.View.Prelude
 
 data NewView = NewView { user :: User }
 
-instance View NewView ViewContext where
+instance View NewView  where
     html NewView { .. } = [hsx|
         <div class="auth-page">
             <div class="container page">
@@ -31,6 +31,6 @@ renderForm :: User -> Html
 renderForm user = formFor user [hsx|
     {textField #username}
     {textField #email}
-    {(passwordField #passwordHash) { fieldLabel = "Password"}}
+    {(passwordField #passwordHash) { fieldLabel = "password"}}
     {submitButton}
 |]

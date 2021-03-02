@@ -13,7 +13,11 @@ dist
 *.hi
 *.o
 build
+.vscode
+dist-newstyle/
 gen
 del
+.vscode
+dist-newstyle
 static/prod.*
 Config/client_session_key.aes

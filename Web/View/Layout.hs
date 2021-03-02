@@ -9,10 +9,9 @@ import Web.Routes
 import qualified IHP.FrameworkConfig as FrameworkConfig
 import Config ()
 
-type Html = HtmlWithContext ViewContext
-
 defaultLayout :: Html -> Html
 defaultLayout inner = H.docTypeHtml ! A.lang "en" $ [hsx|
+
 <head>
     {metaTags}
 
@@ -60,22 +59,20 @@ defaultLayout inner = H.docTypeHtml ! A.lang "en" $ [hsx|
 </body>
 |]
 
-scripts = do
-    when (isDevelopment FrameworkConfig.environment) [hsx|<script id="livereload-script" src="/livereload.js"></script>|]
-    [hsx|
-        <script src="/vendor/morphdom-umd.min.js"></script>
-        <script src="/vendor/jquery-3.2.1.slim.min.js"></script>
-        <script src="/vendor/timeago.js"></script>
-        <script src="/vendor/popper.min.js"></script>
-        <script src="/vendor/bootstrap.min.js"></script>
-        <script src="/helpers.js"></script>
-    |]
-    when (isProduction FrameworkConfig.environment) [hsx|
-            <script src="/vendor/turbolinks.js"></script>
-            <script src="/vendor/morphdom-umd.min.js"></script>
-            <script src="/vendor/turbolinksMorphdom.js"></script>
-            <script src="/vendor/turbolinksInstantClick.js"></script>
-        |]
+
+scripts = [hsx|
+    <script id="livereload-script" src="/livereload.js"></script>
+    <script src="/vendor/morphdom-umd.min.js"></script>
+    <script src="/vendor/jquery-3.2.1.slim.min.js"></script>
+    <script src="/vendor/timeago.js"></script>
+    <script src="/vendor/popper.min.js"></script>
+    <script src="/vendor/bootstrap.min.js"></script>
+    <script src="/helpers.js"></script>
+    <script src="/vendor/turbolinks.js"></script>
+    <script src="/vendor/morphdom-umd.min.js"></script>
+    <script src="/vendor/turbolinksMorphdom.js"></script>
+    <script src="/vendor/turbolinksInstantClick.js"></script>
+|]
 
 
 metaTags = [hsx|

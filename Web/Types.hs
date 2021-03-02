@@ -10,13 +10,6 @@ import IHP.LoginSupport.Types
 
 data WebApplication = WebApplication deriving (Eq, Show)
 
-data ViewContext = ViewContext
-    { requestContext :: ControllerSupport.RequestContext
-    , flashMessages :: [IHP.Controller.Session.FlashMessage]
-    , controllerContext :: ControllerSupport.ControllerContext
-    , layout :: Layout
-    }
-
 data ArticlesController
     = ArticlesAction
     | NewArticleAction

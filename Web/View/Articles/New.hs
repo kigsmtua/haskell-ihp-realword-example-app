@@ -3,7 +3,7 @@ import Web.View.Prelude
 
 data NewView = NewView { article :: Article }
 
-instance View NewView ViewContext where
+instance View NewView  where
     html NewView { .. } = [hsx|
         <div class="editor-page">
             <div class="container page">
